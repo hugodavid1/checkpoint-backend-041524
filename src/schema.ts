@@ -1,9 +1,9 @@
 import { buildSchema } from "type-graphql";
-import { MyResolver } from "./resolvers/CountryResolver";
+import { CountryResolver } from "./resolvers/CountryResolver";
 
 export async function schema() {
   const schema = await buildSchema({
-    resolvers: [MyResolver],
+    resolvers: [CountryResolver],
   });
   return schema;
 }

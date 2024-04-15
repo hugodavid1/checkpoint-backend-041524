@@ -1,8 +1,8 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { buildSchema } from "type-graphql";
-import { MyResolver } from "./resolvers/CountryResolver";
 import { dataSource } from "./datasource";
+import { CountryResolver } from "./resolvers/CountryResolver";
 
 function start() {
   dataSource
@@ -10,7 +10,7 @@ function start() {
     .then(() => {
       console.log("Connected to the database.");
       return buildSchema({
-        resolvers: [MyResolver],
+        resolvers: [CountryResolver],
       });
     })
     .then((schema) => {
